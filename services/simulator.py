@@ -9,7 +9,8 @@ class Simulator:
     v_y_components = []
     a_x_components = []
     a_y_components = []
-    air_density = 15  # TODO
+    time = []
+    air_density = 1.225  # TODO
     g = 9.8  # TODO
 
     def __init__(self, ball_mass, velocity, angel, ball_radius, delta_t):
@@ -22,6 +23,7 @@ class Simulator:
         self.drag_coefficient_service.initialize()
         self.x_components.append(0)
         self.y_components.append(0)
+        self.time.append(0)
 
     def simulate(self):
         i = 0
@@ -40,6 +42,9 @@ class Simulator:
             new_y = self.y_components[i] + self.v_y_components[i] * self.delta_t
             self.x_components.append(new_x)
             self.y_components.append(new_y)
+
+            new_time = self.time[i] + self.delta_t
+            self.time.append(new_time)
 
             i += 1
 
