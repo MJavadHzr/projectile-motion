@@ -1,6 +1,6 @@
 class Reader:
     def __init__(self):
-        self.graph_addr = "drag-coefficient.txt"
+        self.graph_addr = "../resources/drag-coefficient.txt"  # bad coding :\
         self.x_axis = []
         self.y_axis = []
 

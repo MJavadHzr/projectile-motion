@@ -1,4 +1,4 @@
-from reader import Reader
+from reader_service.reader import Reader
 
 
 class DragCoefficientService:
