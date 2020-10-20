@@ -1,4 +1,4 @@
-from reader_service.reader import Reader
+from services.reader import Reader
 
 
 class DragCoefficientService:
@@ -8,7 +8,7 @@ class DragCoefficientService:
         self.x_data = []
         self.y_data = []
 
-    def set_graph_data(self):
+    def initialize(self):
         self.reader.read_graph()
         self.x_data = self.reader.get_x_data()
         self.y_data = self.reader.get_y_data()
