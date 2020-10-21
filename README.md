@@ -13,6 +13,7 @@
 ### Objective
 The objective of this project is to simulate the motion of a projectile with air resistance which follows below equation
 <img src="resources/equ.png" width="25%" align="center">
+
 that *A* is the efficient surface of object, *p* is the air density, *v* is the velocity of object and *C_w* is a coefficient that is called drag coefficient.
 
 -----------------------------------
