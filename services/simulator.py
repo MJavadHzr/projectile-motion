@@ -38,8 +38,8 @@ class Simulator:
             self.v_x_components.append(new_v_x)
             self.v_y_components.append(new_v_y)
 
-            new_x = self.x_components[i] + self.v_x_components[i] * self.delta_t
-            new_y = self.y_components[i] + self.v_y_components[i] * self.delta_t
+            new_x = self.x_components[i] + (self.v_x_components[i] * self.delta_t)
+            new_y = self.y_components[i] + (self.v_y_components[i] * self.delta_t)
             self.x_components.append(new_x)
             self.y_components.append(new_y)
 

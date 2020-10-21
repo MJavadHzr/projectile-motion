@@ -15,6 +15,8 @@ class DragCoefficientService:
 
     def get_coefficient(self, velocity):
         mach_number = velocity / self.air_velocity
+        if mach_number < 0.5:
+            return 0.2
         index = self.get_index(mach_number)
         return self.y_data[index]
 

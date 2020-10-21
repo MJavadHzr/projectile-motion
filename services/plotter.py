@@ -2,9 +2,12 @@ import matplotlib.pyplot as plt
 
 
 class Plotter:
+    # output_addr= "./output/"
+
     @staticmethod
-    def plot(x_axis, y_axis, x_label, y_label):
+    def plot(y_axis, x_axis, y_label, x_label, name):
         plt.plot(x_axis, y_axis)
         plt.xlabel(x_label)
         plt.ylabel(y_label)
+        plt.savefig("output/" + name)
         plt.show()

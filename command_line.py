@@ -1,7 +1,6 @@
 from services.simulator import Simulator
 from services.plotter import Plotter
 
-
 print("Hello and welcome to this tiny simulator")
 print("-----------------------------------------------")
 print("Ok you are big now and it's time to \ndon't ignoring air resistance in projectile motion")
@@ -25,7 +24,10 @@ delta_t = float(input())
 
 simulator = Simulator(mass, initial_velocity, angel, radius, delta_t)
 simulator.simulate()
-Plotter.plot(simulator.x_components, simulator.y_components, "x", "y")
-
-
-
+Plotter.plot(simulator.y_components, simulator.x_components, "y (m)", "x (m)", "[y-x]graph")
+Plotter.plot(simulator.x_components, simulator.time, "x (m)", "t (s)", "[x-t]graph")
+Plotter.plot(simulator.y_components, simulator.time, "y (m)", "t (s)", "[y-t]graph")
+Plotter.plot(simulator.v_x_components, simulator.time, "x dot (m/s)", "t (s)", "[xdot-t]graph")
+Plotter.plot(simulator.v_y_components, simulator.time, "y dot (m/s)", "t (s)", "[ydot-t]graph")
+Plotter.plot(simulator.v_x_components, simulator.x_components, "x dot (m/s)", "x (m)", "[xdot-x]graph")
+Plotter.plot(simulator.v_y_components, simulator.y_components, "y dot (m/s)", "y (m)", "[ydot-y]graph")
