@@ -12,17 +12,14 @@
 -----------------------------------
 ### Objective
 The objective of this project is to simulate the motion of a projectile with air resistance which follows below equation
-```math
-F(v) = \frac{1}{2} C_{w} A \: \rho \: v^2
-```
-that $`A`$ is the efficient surface of object, $`\rho`$ is the air density, $`v`$ is the velocity of object and $`C_{w}`$ is a coefficient that is called drag coefficient.
+<img src="resources/equ.png" width="25%" align="center">
+that *A* is the efficient surface of object, *p* is the air density, *v* is the velocity of object and *C_w* is a coefficient that is called drag coefficient.
 
 -----------------------------------
 ### About Drag Coefficient
 This coefficient has relation to Mach number which is the ratio of object velocity to air velocity and a typical graph of this relation has shown in figure 1.
 
 <div align="center">
-
   <figure>
     <img src="resources/drag-coefficient.jpg" alt="drag-coefficient" width="40%" >
     <figcaption>Fig.1 - drag-coefficient by mach number</figcaption>
