@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 
 
 class Plotter:
-    # output_addr= "./output/"
 
     @staticmethod
     def plot(y_axis, x_axis, y_label, x_label, name):

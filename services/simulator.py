@@ -28,28 +28,33 @@ class Simulator:
     def simulate(self):
         i = 0
         while True:
-            resiting_force_coefficient = (self.__get_cw(i) * self.air_density * self.__get_velocity(i)) / (
-                    2 * self.ball_mass)
-            self.a_x_components.append(resiting_force_coefficient * -1 * self.v_x_components[i])
-            self.a_y_components.append(resiting_force_coefficient * -1 * self.v_y_components[i] - self.g)
-
-            new_v_x = self.v_x_components[i] + (self.a_x_components[i] * self.delta_t)
-            new_v_y = self.v_y_components[i] + (self.a_y_components[i] * self.delta_t)
-            self.v_x_components.append(new_v_x)
-            self.v_y_components.append(new_v_y)
-
-            new_x = self.x_components[i] + (self.v_x_components[i] * self.delta_t)
-            new_y = self.y_components[i] + (self.v_y_components[i] * self.delta_t)
-            self.x_components.append(new_x)
-            self.y_components.append(new_y)
-
-            new_time = self.time[i] + self.delta_t
-            self.time.append(new_time)
+            self.__calculate_next_a(i)
+            self.__calculate_next_v(i)
+            self.__calculate_next_r(i)
+            self.time.append(self.time[i] + self.delta_t)
 
             i += 1
 
-            if new_y < 0:
+            if self.y_components[i] < 0:
                 break
+
+    def __calculate_next_a(self, i):
+        resiting_force_coefficient = (self.__get_cw(i) * self.air_density * self.__get_velocity(i)) / (
+                2 * self.ball_mass)
+        self.a_x_components.append(resiting_force_coefficient * -1 * self.v_x_components[i])
+        self.a_y_components.append(resiting_force_coefficient * -1 * self.v_y_components[i] - self.g)
+
+    def __calculate_next_v(self, i):
+        new_v_x = self.__get_new_value(self.v_x_components[i], self.a_x_components[i])
+        new_v_y = self.__get_new_value(self.v_y_components[i], self.a_y_components[i])
+        self.v_x_components.append(new_v_x)
+        self.v_y_components.append(new_v_y)
+
+    def __calculate_next_r(self, i):
+        new_x = self.__get_new_value(self.x_components[i], self.v_x_components[i])
+        new_y = self.__get_new_value(self.y_components[i], self.v_y_components[i])
+        self.x_components.append(new_x)
+        self.y_components.append(new_y)
 
     def __get_velocity(self, i):
         v_x = self.v_x_components[i]
@@ -58,3 +63,6 @@ class Simulator:
 
     def __get_cw(self, i):
         return self.drag_coefficient_service.get_coefficient(self.__get_velocity(i))
+
+    def __get_new_value(self, prev, ratio):
+        return prev + (ratio * self.delta_t)
