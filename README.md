@@ -43,4 +43,4 @@ As easy as possible :)
 *Notice : you can find graph's file in *output* directory*
 
 
-*P.S. : when a nobe code pyhton, don't care about project structure 😄*
+*P.S. : when a newbie code pyhton, don't care about project structure 😄*
